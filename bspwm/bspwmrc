@@ -1,62 +1,86 @@
 #! /bin/sh
+# Bspwm config file by Ochi
 
 pgrep -x sxhkd > /dev/null || sxhkd &
 
 bspc monitor -d I II III IV V 
 
-bspc config border_width         2
-bspc config window_gap          12
+## Bspwm colors
+BSPWM_FBC='#81A1C1'
+BSPWM_NBC='#2E3440'
+BSPWM_ABC='#B48EAD'
+BSPWM_PFC='#A3BE8C'
 
-bspc config split_ratio          0.52
-bspc config borderless_monocle   true
-bspc config gapless_monocle      true
-bspc config pointer_follows_focus true
+## Bspwm appearance
+BSPWM_BORDER='1'
+BSPWM_GAP='10'
+BSPWM_SRATIO='0.50'
+
+## Apply bspwm configurations
+bspc config border_width "$BSPWM_BORDER"
+bspc config window_gap "$BSPWM_GAP"
+bspc config split_ratio "$BSPWM_SRATIO"
+
+bspc config focused_border_color "$BSPWM_FBC"
+bspc config normal_border_color "$BSPWM_NBC"
+bspc config active_border_color "$BSPWM_ABC"
+bspc config presel_feedback_color "$BSPWM_PFC"
+
+bspc config borderless_monocle true
+bspc config gapless_monocle true
+bspc config paddingless_monocle true
+bspc config single_monocle false
 bspc config focus_follows_pointer true
+bspc config presel_feedback true
 
-bspc rule -a thunar desktop='^3'
-bspc rule -a Chromium desktop='^2'
-bspc rule -a firefox desktop='^2'
-bspc rule -a vlc state=floating
+# remove all rules first
+bspc rule -r *:*
+
+# Window rules
+bspc rule -a Xfce4-terminal desktop='^1' follow=on focus=on
+bspc rule -a firefox desktop='^2' follow=on focus=on
+bspc rule -a thunar desktop='^3' state=floating focus=on
+bspc rule -a mpv state=floating
 bspc rule -a Yad state=floating
 bspc rule -a Kupfer.py focus=on
 bspc rule -a Screenkey manage=off
 
-
-# Border
-# bspc config focused_border_color        "#6c71c4"
-# bspc config normal_border_color         "#073642"
-# bspc config active_border_color         "#073642"
-
-bspc config normal_border_color "#44475a"
-# bspc config active_border_color "#bd93f9"
-# bspc config focused_border_color "#ff79c6"
-bspc config active_border_color "#6272a4"
-bspc config focused_border_color "#8be9fd"
-bspc config presel_feedback_color "#6272a4"
-
 #
 # Autostart
 #
+
+# Lauch xsettingsd daemon
+xsettingsd --config="$BSPDIR"/xsettingsd &
+
 # Set display from arandr saved script
 sh ~/.screenlayout/monitor.sh &
+
 # Bar
 ~/.config/polybar/forest/launch.sh &
+
 # Notifications
 /usr/bin/dunst &
+
 # Polkit
 /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
+
 # Wallpaper
 nitrogen --restore &
+
 # Dex
-dex -a -s /etc/xdg/autostart/:~/.config/autostart/  
+dex -a -s /etc/xdg/autostart/:~/.config/autostart/
+
 # Picom
 picom -CGb &
+
 # Network Applet
 nm-applet --indicator &
 
 # Cursor
 xsetroot -cursor_name left_ptr &
 
+# Ventanas flotantes en 5
+# bspfloatt
+
 # Low battery notifier
 # ~/.config/bspwm/scripts/low_bat_notifier.sh
-
