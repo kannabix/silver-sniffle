@@ -1,4 +1,4 @@
 # silver-sniffle
 My personal stuff about BSPWM and Archlinux
 
-![screenshot](https://user-images.githubusercontent.com/428704/177000797-eba5a84c-6542-4370-a0b1-6785f2321740.png)
+![screenshot](https://github.com/kannabix/silver-sniffle/blob/f5800e2232640f64770392c1e54e96e7695d12b2/screenshot.png)
