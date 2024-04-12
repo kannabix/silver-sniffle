@@ -1,4 +1,4 @@
-# silver-sniffle
+# Achlinux + BSPWM
 My personal stuff about BSPWM and Archlinux
 
 
