@@ -6,6 +6,9 @@ My personal stuff about BSPWM and Archlinux
 
 
 [![forthebadge](https://forthebadge.com/images/featured/featured-built-with-love.svg)](https://forthebadge.com)
+
 [![forthebadge](https://forthebadge.com/images/featured/featured-contains-cat-gifs.svg)](https://forthebadge.com)
+
 [![forthebadge](https://forthebadge.com/images/badges/contains-tasty-spaghetti-code.svg)](https://forthebadge.com)
+
 [![forthebadge](https://forthebadge.com/images/badges/0-percent-optimized.svg)](https://forthebadge.com)
