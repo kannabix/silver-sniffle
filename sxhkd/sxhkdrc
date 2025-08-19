@@ -2,7 +2,7 @@
 # wm independent hotkeys
 #
 
-# terminal emulator
+# terminal
 super + Return
 	xfce4-terminal
 
@@ -156,13 +156,16 @@ XF86AudioMute
 # amixer -q set Master toggle
 # Simple amixer command seems to have problems unmuting device
 
+# Si no funcionar xbacklight, usar brightnessctl
 # Brightness up
 XF86MonBrightnessUp
-  xbacklight -inc 5
+   brightnessctl s 5%+
+#  xbacklight -inc 5
 
 # And brightness down
 XF86MonBrightnessDown
-  xbacklight -dec 5
+   brightnessctl s 5%-
+#  xbacklight -dec 5
 
 # Screenshot
 Print
